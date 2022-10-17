@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateContent = require('./utils/generateMTML.js');
-const fileName = "README.md";
+const fileName = "index.html";
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -18,12 +18,8 @@ const questions = [
 
 // TODO: Create a function to write README file    
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, generateContent.generateMarkdown(data), (err) =>
-        err ? console.log(err) : console.log('Successfully created README.md!')
-    );
-
-    fs.appendFile(fileName, generateContent.renderLicenseSection(data.license), (err) =>
-        err ? console.log(err) : console.log('Successfully appended to README.md!')
+    fs.writeFile(fileName, generateContent.generateHTML(data), (err) =>
+        err ? console.log(err) : console.log('Successfully created index.html!')
     );
 }
 
