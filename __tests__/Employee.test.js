@@ -16,7 +16,7 @@ describe("Employee", () => {
     });
     it("should throw an error if not provided a name", () => {
       const cb = () => new Employee(1, "jared@fakemail.com");
-      const err = new Error("Expected parameter 'name' to be a string");
+      const err = new Error("Expected parameter 'name' to be a non-empty string");
 
       expect(cb).toThrowError(err);
     });
@@ -28,7 +28,7 @@ describe("Employee", () => {
     });
     it("should throw an error if not provided an email", () => {
       const cb = () => new Employee("jared", 1);
-      const err = new Error("Expected parameter 'email' to be a string");
+      const err = new Error("Expected parameter 'email' to be a non-empty string");
 
       expect(cb).toThrowError(err);
     });
