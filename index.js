@@ -5,7 +5,7 @@ const Manager = require("./lib/manager.js");
 const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
 const fileName = "./dist/index.html";
-var peopleList = [];
+var peopleList = []; // Stores Manager/Engineer/Intern objects
 
 // An array of questions for the team manager's information for user input
 const managerQuestions = [
@@ -32,7 +32,7 @@ const internQuestions = [
   "What is the intern's school name?",
 ];
 
-// Function to initiate the HTML file, and write the manager data to it
+// Function to specifically handle the manager inquirer, which will be executed before the "adding employee" loop later on
 async function addManager() {
   await inquirer
     .prompt([
@@ -163,6 +163,7 @@ async function init() {
               resolve(data);
             });
         });
+        // If the user select "finish", ending the add employee sequence
       } else {
         isFinished = true;
         writeToHTML();
